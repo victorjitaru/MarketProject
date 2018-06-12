@@ -30,7 +30,7 @@ public class ProductsRepositoryImpl implements ProductsRepository {
         }
         return null;
     }
-
+//assigns an Id to the products and adds a prod to the product list
     public void persistProduct(Product product) {
         product.setId(productHolder.getMaxId() + 1);
         productHolder.addProduct(product);
@@ -42,7 +42,7 @@ public class ProductsRepositoryImpl implements ProductsRepository {
         String productsLiteral =  gson.toJson(products);
         writeToFile(productsLiteral);
     }
-
+//writes a product into the json file
     private void writeToFile(String products){
         try {
             FileWriter fileWriter = new FileWriter(FILE_PATH);
@@ -53,7 +53,7 @@ public class ProductsRepositoryImpl implements ProductsRepository {
             e.getMessage();
         }
     }
-
+//reading the products from a json file in order to have the list with all the products
     private List<Product> readFromFile(){
         StringBuilder sb = new StringBuilder();
         try {
