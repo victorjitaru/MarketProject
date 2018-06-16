@@ -73,4 +73,6 @@ public class ProductsRepositoryImpl implements ProductsRepository {
     public void persistProducts(List<Product> products) {
         serialize(products);
     }
+
+
 }
