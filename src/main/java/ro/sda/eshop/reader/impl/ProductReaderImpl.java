@@ -19,7 +19,7 @@ public class ProductReaderImpl implements ProductReader{
         System.out.print("Price: ");
         product.setPrice(scanner.nextBigDecimal());
         System.out.print("Description: ");
-        System.out.println(" ");
+        System.out.println();
         product.setDescription(scanner.nextLine());
         return product;
     }

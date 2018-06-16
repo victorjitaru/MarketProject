@@ -37,4 +37,7 @@ public class Stock {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
+
 }
+
+
