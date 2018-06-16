@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "productIds": [
+      0,
+      1
+    ],
+    "status": "Placed"
+  },
+  {
+    "id": 2,
+    "productIds": [],
+    "status": "Placed"
+  }
+]
