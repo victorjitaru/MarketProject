@@ -1,6 +1,7 @@
 package ro.sda.eshop.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Product {
     private Long id;
@@ -44,5 +45,16 @@ public class Product {
     public String toString() {
         return name + "\n" + "(" + price + ") \n" +
                 "Product details\n" + description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return Objects.equals(getId(), product.getId()) &&
+                Objects.equals(getName(), product.getName()) &&
+                Objects.equals(getPrice(), product.getPrice()) &&
+                Objects.equals(getDescription(), product.getDescription());
     }
 }

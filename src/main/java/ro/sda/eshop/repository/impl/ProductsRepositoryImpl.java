@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class ProductsRepositoryImpl implements ProductsRepository {
 
     public static final String FILE_PATH = "products.json";
