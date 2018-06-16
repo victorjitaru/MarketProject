@@ -21,10 +21,12 @@ public class ProductHolder {
         return maxId;
     }
 
+//adds a product into the HashMap
     public void addProduct(Product product){
         this.products.put(product.getId(),product);
     }
 
+//puts all the products into the HashMap
     public void setProducts(List<Product> products){
         this.products.clear();
         for(Product product:products){
@@ -32,11 +34,23 @@ public class ProductHolder {
         }
     }
 
+//gets a product from the HashMap
     public Product getProduct(long id){
      return this.products.get(id);
     }
 
+//gets all prods from HashMap
     public List<Product> getAllProducts(){
         return new ArrayList<Product>(this.products.values());
+    }
+
+//checks if the newly added products already exists
+    private boolean productDuplicate(Product product){
+        for(Product product1:products){
+            if(product1.equals(product)){
+                return true;
+            }
+        }
+        return false;
     }
 }

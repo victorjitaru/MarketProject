@@ -1,12 +1,17 @@
 package ro.sda.eshop.model;
 
 public class Stock {
-    Long productId;
-    Integer amount;
+    private Long id;
+    private Long productId;
+    private String location;
+    private Integer amount;
 
-    public Stock(Long productId, Integer amount) {
-        this.productId = productId;
-        this.amount = amount;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getProductId() {
@@ -15,6 +20,14 @@ public class Stock {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Integer getAmount() {
