@@ -19,7 +19,9 @@ public class MainMenu {
     }
 
     private void displayOptions(){
-        System.out.println();
+        System.out.println("1. Show all products.");
+        System.out.println("2. Select product to view (by ID).");
+        System.out.println("0. Exit");
     }
 
     private int readOption(){
@@ -30,7 +32,10 @@ public class MainMenu {
     private void processOption(int option){
         switch (option){
             case 1:
-
+                service.showProductList();
+                return;
+            case 2:
+                service.showDetailedProduct(service.getIdForProduct());
                 return;
             case 0:
             default:

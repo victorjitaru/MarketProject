@@ -1,14 +1,14 @@
 [
   {
     "id": 0,
-    "name": "blender",
-    "price": 25,
+    "name": "Cats",
+    "price": 10.09,
     "description": ""
   },
   {
     "id": 1,
-    "name": "TV",
-    "price": 100,
+    "name": "Dog",
+    "price": 11.98,
     "description": ""
   }
 ]
