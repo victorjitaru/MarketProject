@@ -16,6 +16,5 @@ public class Main {
         productsRepository.persistProduct(prod1);
         productsRepository.persistProduct(prod2);
 
-
     }
 }
