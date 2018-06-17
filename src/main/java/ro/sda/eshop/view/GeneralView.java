@@ -1,8 +1,5 @@
 package ro.sda.eshop.view;
 
-import ro.sda.eshop.repository.impl.ProductHolder;
-import ro.sda.eshop.service.ProductService;
-
 import java.util.Scanner;
 
 public class GeneralView implements MarketViewInterface {
@@ -40,6 +37,7 @@ public class GeneralView implements MarketViewInterface {
 
     @Override
     public int readOption() {
+
         System.out.println("Input option: ");
         return scanner.nextInt();
     }

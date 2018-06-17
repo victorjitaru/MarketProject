@@ -3,19 +3,17 @@ package ro.sda.eshop.service;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
-import ro.sda.eshop.repository.impl.OrderHolder;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
 
 public class OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
-    OrderHolder orderHolder = new OrderHolder();
     ProductService productService = new ProductService();
 
     public Order createOrder(){
         Order newOrder = new Order();
-        newOrder.setId(orderHolder.getMaxId() + 1);
         newOrder.setStatus(OrderStatus.Pending);
+        orderRepository.persistOrder(newOrder);
         return newOrder;
     }
 
@@ -24,7 +22,7 @@ public class OrderService {
     }
 
     public void addProdToOrder(Product product, Order order) {
-        order.getProductsId().add(product.getId());
+        order.getProductIds().add(product.getId());
     }
 
     public void placeOrder(Order order){
@@ -41,11 +39,11 @@ public class OrderService {
     }
 
     public void deleteProductFromOrder(Product product, Order order) {
-        order.getProductsId().remove(product.getId());
+        order.getProductIds().remove(product.getId());
     }
 
     public void deleteAllProductsFromOrder(Order order) {
-        order.getProductsId().clear();
+        order.getProductIds().clear();
     }
 
 }
