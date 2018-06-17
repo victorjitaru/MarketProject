@@ -18,8 +18,6 @@ public class OrderService {
     }
 
     private boolean validOrder(Order order){
-
-
         return true;
     }
 
