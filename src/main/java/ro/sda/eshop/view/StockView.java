@@ -1,7 +1,6 @@
 package ro.sda.eshop.view;
 
 import ro.sda.eshop.repository.impl.StockHolder;
-
 import java.util.Scanner;
 
 public class StockView implements MarketViewInterface {
