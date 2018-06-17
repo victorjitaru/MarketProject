@@ -39,8 +39,8 @@ public class ProductHolder {
     }
 
     //gets a product from the HashMap
-    public Product getProduct(long id) {
-        return this.products.get(id);
+    public Product getProduct(long productId) {
+        return this.products.get(productId);
     }
 
     //gets all prods from HashMap

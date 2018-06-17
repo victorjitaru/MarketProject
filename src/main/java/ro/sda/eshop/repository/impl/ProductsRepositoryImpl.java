@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsRepositoryImpl implements ProductsRepository {
@@ -17,14 +17,18 @@ public class ProductsRepositoryImpl implements ProductsRepository {
     public static final String FILE_PATH = "products.json";
     ProductHolder productHolder = new ProductHolder();
 
+    public ProductsRepositoryImpl(){
+        readFromFile();
+    }
+
     public List<Product> getAllProducts() {
         return readFromFile();
     }
 
-    public Product getProductById(long id) {
+    public Product getProductById(long productId) {
         List<Product> products = readFromFile();
         for (Product product : products) {
-            if (product.getId() == id) {
+            if (product.getId() == productId) {
                 return product;
             }
         }
@@ -68,9 +72,13 @@ public class ProductsRepositoryImpl implements ProductsRepository {
         } catch (IOException e) {
             e.getMessage();
         }
+
         String productsLiteral = sb.toString();
         Gson gson = new Gson();
-        return Arrays.asList(gson.fromJson(productsLiteral, Product.class));
+
+        List<Product> myProducts = new ArrayList<Product>();
+        myProducts = gson.fromJson(productsLiteral, myProducts.getClass());
+        return myProducts;
     }
 
     public void persistProducts(List<Product> products) {
