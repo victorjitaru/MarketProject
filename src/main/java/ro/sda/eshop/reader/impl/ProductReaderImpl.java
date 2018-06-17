@@ -23,7 +23,7 @@ public class ProductReaderImpl implements ProductReader{
         product.setDescription(scanner.nextLine());
         return product;
     }
-//reads products from a file
+    //reads products from a file
     public Product addProductsFromFile(){
         String sourceFilePath = "productSource.txt";
         Product product = new Product();

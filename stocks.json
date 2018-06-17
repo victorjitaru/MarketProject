@@ -1,12 +1,10 @@
 [
   {
     "id": 0,
-    "productId": 432,
-    "amount": 543
+    "amount": 3
   },
   {
     "id": 1,
-    "productId": 322,
-    "amount": 544
+    "amount": 5
   }
 ]

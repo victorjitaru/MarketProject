@@ -1,14 +1,27 @@
 [
   {
+
+
     "id": 0,
-    "name": "lion",
-    "price": 2,
+
+    "name": "Television",
+
+    "price": 100,
+
     "description": ""
+  
   },
+
   {
     "id": 1,
-    "name": "cat",
-    "price": 54,
+
+    "name": "Masina Spalat Rufe",
+
+    "price": 1300,
+
     "description": ""
+  
   }
+
+
 ]
