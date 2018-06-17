@@ -1,9 +1,13 @@
 package ro.sda.eshop.view;
 
+
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.reader.OrderReader;
 import ro.sda.eshop.reader.impl.OrderReaderImpl;
 import ro.sda.eshop.service.OrderService;
+
+
+import ro.sda.eshop.repository.impl.OrderHolder;
 
 import java.util.Scanner;
 
@@ -45,8 +49,10 @@ public class OrderView implements MarketViewInterface {
 
     @Override
     public int readOption() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
+
     }
 }
