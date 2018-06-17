@@ -38,10 +38,9 @@ public class ProductsView implements MarketViewInterface {
             displayView();
         }
     }
+
     @Override
     public int readOption() {
-        System.out.println("Input option: ");
-        return scanner.nextInt();
-
+        return 0;
     }
 }

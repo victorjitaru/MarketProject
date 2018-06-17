@@ -29,11 +29,9 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     public void persistOrder(Order order) {
-
         if(order.getId() == null){
             order.setId(orderHolder.getMaxId() + 1);
         }
-
         orderHolder.addOrder(order);
         serialize(orderHolder.getAllOrders());
     }
@@ -64,10 +62,8 @@ public class OrderRepositoryImpl implements OrderRepository {
         } catch (IOException e){
             e.fillInStackTrace();
         }
-
         String ordersLiteral = stringBuilder.toString();
         Gson gson = new Gson();
-
         List<Order> myOrders = new ArrayList<Order>();
         myOrders = gson.fromJson(ordersLiteral, myOrders.getClass());
         return myOrders;
@@ -78,5 +74,4 @@ public class OrderRepositoryImpl implements OrderRepository {
         String ordersLiteral = gson.toJson(orders);
         writeToFile(ordersLiteral);
     }
-
 }

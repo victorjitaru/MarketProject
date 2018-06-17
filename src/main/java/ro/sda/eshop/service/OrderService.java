@@ -10,13 +10,6 @@ public class OrderService {
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
     ProductService productService = new ProductService();
 
-    public Order createOrder(){
-        Order newOrder = new Order();
-        newOrder.setStatus(OrderStatus.Pending);
-        orderRepository.persistOrder(newOrder);
-        return newOrder;
-    }
-
     private boolean validOrder(Order order){
         return true;
     }
