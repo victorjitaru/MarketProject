@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class OrderReaderImpl implements OrderReader {
 
+    /*
+    * Citest produsele dintr-un "order"
+    * */
     public Order readOrder() {
         Order order = new Order();
 
