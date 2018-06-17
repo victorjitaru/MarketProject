@@ -25,7 +25,7 @@ public class ProductReaderImpl implements ProductReader{
     }
     //reads products from a file
     public Product addProductsFromFile(){
-        String sourceFilePath = "src/products.txt";
+        String sourceFilePath = "productSource.txt";
         Product product = new Product();
         try {
             FileReader fileReader = new FileReader(sourceFilePath);
