@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "productIds": [],
+    "productIds": [2, 3],
     "status": "Placed"
   }
 ]

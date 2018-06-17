@@ -4,32 +4,28 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.repository.OrderRepository;
-import ro.sda.eshop.service.OrderService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderRepositoryImpl implements OrderRepository {
-    public static final String FILE_PATH = "C:\\Users\\jitar\\ProjectsSDAcad\\MarketProject\\orders.json";
+    public static final String FILE_PATH = "orders.json";
     OrderHolder orderHolder = new OrderHolder();
-    OrderService orderService = new OrderService();
+
+    public OrderRepositoryImpl(){
+        readFromFile();
+    }
 
     public List<Order> getAll() {
         return readFromFile();
     }
 
-    public Order getOrderById(long id) {
-        List<Order> orders = readFromFile();
-        for(Order order:orders){
-            if(order.getId() == id){
-                return order;
-            }
-        }
-        return null;
+    public Order getOrderById(long orderId) {
+        return orderHolder.getOrder(orderId);
     }
 
     public void persistOrder(Order order) {
@@ -71,7 +67,10 @@ public class OrderRepositoryImpl implements OrderRepository {
 
         String ordersLiteral = stringBuilder.toString();
         Gson gson = new Gson();
-        return Arrays.asList(gson.fromJson(ordersLiteral, Order.class));
+
+        List<Order> myOrders = new ArrayList<Order>();
+        myOrders = gson.fromJson(ordersLiteral, myOrders.getClass());
+        return myOrders;
     }
 
     private void serialize(List<Order> orders){

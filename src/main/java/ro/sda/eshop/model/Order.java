@@ -16,12 +16,12 @@ public class Order {
         this.id = id;
     }
 
-    public List<Long> getProductsId() {
+    public List<Long> getProductIds() {
         return productIds;
     }
 
-    public void setProducts(List<Long> productsId) {
-        this.productIds = productsId;
+    public void setProductIds(List<Long> productIds) {
+        this.productIds = productIds;
     }
 
     public OrderStatus getStatus() {
