@@ -2,6 +2,6 @@ package ro.sda.eshop.view;
 
 public interface MarketViewInterface {
     void displayView();
-    void  readOption();
+    int  readOption();
     void processOption(int option);
 }
