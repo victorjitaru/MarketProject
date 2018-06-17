@@ -21,7 +21,6 @@ public class StockService {
         return 0;
     }
 
-
     public boolean stockExists(Long productId) {
 
         List<Stock> stocks = stockRepository.getAllStocks();
@@ -39,4 +38,10 @@ public class StockService {
     public List<Stock> listStock(){
         return stockRepository.getAllStocks();
     }
+
+    public void addStock(Stock stock) {
+        stockRepository.persistStock(stock);
+    }
+
+
 }

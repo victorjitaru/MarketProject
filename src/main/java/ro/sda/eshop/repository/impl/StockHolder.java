@@ -19,15 +19,14 @@ public class StockHolder {
             }
         }
         return maxId;
-
     }
 
-    //add a product into the HashMap
+    //add a stocks into the HashMap
     public void addStock(Stock stock) {
         this.stocks.put(stock.getId(), stock);
     }
 
-    //puts all products into the HashMap
+    //puts all stocks into the HashMap
     public void setStocks(List<Stock> stocks) {
         this.stocks.clear();
         for (Stock stock : stocks) {
@@ -35,17 +34,17 @@ public class StockHolder {
         }
     }
 
-    // gets a product from tha HasMap
+    // gets a stocks from tha HasMap
     public Stock getStock(long id) {
         return this.stocks.get(id);
     }
 
-    // gets all prods from HasMap
+    // gets all stocks from HasMap
     public List<Stock> getAllStocks() {
         return new ArrayList<Stock>(this.stocks.values());
     }
 
-    //checks if the newly added products already exists
+    //checks if the newly added stocks already exists
     private boolean stockDuplicate(Stock stock) {
         for (Stock stock1 : stocks.values()) {
             if (stock1.equals(stock)) {

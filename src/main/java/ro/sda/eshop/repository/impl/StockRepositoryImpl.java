@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,18 +19,16 @@ public class StockRepositoryImpl implements StockRepository {
     public static final String FILE_PATH = "stocks.json";
     StockHolder stockHolder = new StockHolder();
 
-    public List<Stock> getAllStocks() {
-        return readFromFile();
+    public StockRepositoryImpl() {
+        this.stockHolder.setStocks(readFromFile());
     }
 
-    public Stock getStockById(long id) {
-        List<Stock> stocks = readFromFile();
-        for (Stock stock : stocks) {
-            if (stock.getId() == id) {
-                return stock;
-            }
-        }
-        return null;
+    public List<Stock> getAllStocks() {
+        return stockHolder.getAllStocks();
+    }
+
+    public Stock getStockById(long stockId) {
+        return stockHolder.getStock(stockId);
     }
 
     public void persistStock(Stock stock) {
@@ -68,8 +67,10 @@ public class StockRepositoryImpl implements StockRepository {
         }
         String stocksLiteral = sb.toString();
         Gson gson = new Gson();
-        return Arrays.asList(gson.fromJson(stocksLiteral, Stock.class));
 
+        List<Stock> myStocks = new ArrayList<>();
+        myStocks = gson.fromJson(stocksLiteral, myStocks.getClass());
+        return myStocks;
     }
 
     public void persistStocks(List<Stock> stocks){
