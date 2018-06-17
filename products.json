@@ -1,1 +1,27 @@
+[
+  {
 
+
+    "id": 0,
+
+    "name": "Television",
+
+    "price": 100,
+
+    "description": ""
+  
+  },
+
+  {
+    "id": 1,
+
+    "name": "Masina Spalat Rufe",
+
+    "price": 1300,
+
+    "description": ""
+  
+  }
+
+
+]
