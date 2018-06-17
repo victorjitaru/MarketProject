@@ -32,7 +32,7 @@ public class StockView implements MarketViewInterface {
 
                 return;
             case 2:
-                StockHolder stockHolder= new StockHolder();
+                StockHolder stockHolder = new StockHolder();
                // stockHolder.addStock();
                 return;
             case 0:
