@@ -10,4 +10,9 @@ public class StockView implements MarketViewInterface {
     public void readOption() {
 
     }
+
+    @Override
+    public void processOption(int option) {
+
+    }
 }

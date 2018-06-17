@@ -14,7 +14,6 @@ public class ProductService {
 
 
 
-
     //read ID for a Product
     public Long getIdForProduct() {
         return productReader.readProductId();

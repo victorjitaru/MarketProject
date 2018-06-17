@@ -32,10 +32,10 @@ public class MainMenu {
     private void processOption(int option){
         switch (option){
             case 1:
-                service.showProductList();
+
                 return;
             case 2:
-                service.showDetailedProduct(service.getIdForProduct());
+
                 return;
             case 0:
             default:
