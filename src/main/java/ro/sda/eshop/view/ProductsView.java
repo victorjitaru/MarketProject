@@ -6,28 +6,28 @@ import java.util.Scanner;
 
 public class ProductsView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
-    static ProductService productService = new ProductService();
+    ProductService productService = new ProductService();
 
-    public static void displayView() {
+    public void displayView() {
         int option = -1;
         System.out.println("1. List products");
         System.out.println("2. Add Product");
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while(option != EXIT_OPTION){
+        while (option != EXIT_OPTION) {
             displayView();
         }
     }
 
-    public static int readOption() {
+    public int readOption() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input Option: ");
         return scanner.nextInt();
     }
 
-    public static void processOption(int option) {
-        switch (option){
+    public void processOption(int option) {
+        switch (option) {
             case 1:
                 productService.listProducts();
                 return;

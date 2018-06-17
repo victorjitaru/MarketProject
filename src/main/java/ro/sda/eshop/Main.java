@@ -36,8 +36,8 @@ public class Main {
         OrderService orderService = new OrderService();
         Order ord1 = orderRead.readOrder();
         Order ord2 = orderRead.readOrder();
-        orderService.addProdToOrder(prod1, ord1);
-        orderService.addProdToOrder(prod2, ord1);
+//        orderService.addProdToOrder(prod1, ord1);
+//        orderService.addProdToOrder(prod2, ord1);
 
         orderService.placeOrder(ord1);
         orderService.placeOrder(ord2);

@@ -5,7 +5,11 @@ import java.util.Scanner;
 public class GeneralView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
 
-    public static void displayView() {
+    ProductsView productsView = new ProductsView();
+    StockView stockView = new StockView();
+    OrderView orderView = new OrderView();
+
+    public void displayView() {
         int option = -1;
         System.out.println("1. Select Products.");
         System.out.println("2. Select Stock.");
@@ -18,22 +22,22 @@ public class GeneralView implements MarketViewInterface {
         }
     }
 
-    public static int readOption() {
+    public int readOption() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
     }
 
-    public static void processOption(int option) {
+    public void processOption(int option) {
         switch (option) {
             case 1:
-                ProductsView.displayView();
+                productsView.displayView();
                 return;
             case 2:
-                StockView.displayView();
+                stockView.displayView();
                 return;
             case 3:
-                OrderView.displayView();
+                orderView.displayView();
                 return;
             case 0:
             default:
