@@ -12,7 +12,7 @@ public class OrderView implements MarketViewInterface {
     }
 
     @Override
-    public void readOption() {
-
+    public int readOption() {
+        return readOption() ;
     }
 }
