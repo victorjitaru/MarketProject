@@ -14,7 +14,7 @@ public class ProductsView implements MarketViewInterface {
     }
 
     @Override
-    public void readOption() {
-
+    public int readOption() {
+        return 1;
     }
 }

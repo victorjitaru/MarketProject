@@ -1,6 +1,7 @@
 package ro.sda.eshop.repository.impl;
 
 import ro.sda.eshop.model.Order;
+import ro.sda.eshop.model.OrderStatus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +12,11 @@ public class OrderHolder {
 
     private Map<Long, Order> orders = new HashMap<Long, Order>();
 
-//Used to generate unique Id
-    public Long getMaxId(){
+    //Used to generate unique Id
+    public Long getMaxId() {
         Long maxId = -1L;
-        for(Long key:orders.keySet()){
-            if(key > maxId){
+        for (Long key : orders.keySet()) {
+            if (key > maxId) {
                 maxId = key;
             }
         }
@@ -23,19 +24,16 @@ public class OrderHolder {
     }
 
     //Check if product exists and adds a product into the HashMap
-    public void addOrder(Order order){
-//        if(!productDuplicate(product)) {
-            this.orders.put(order.getId(), order);
-//        } else{
-//            System.out.println("Product already exists in stock.");
-//        }
+    public void addOrder(Order order) {
+        order.setStatus(OrderStatus.Pending);
+        this.orders.put(order.getId(), order);
     }
 
-    public List<Order> getAllOrders(){
+    public List<Order> getAllOrders() {
         return new ArrayList<Order>(this.orders.values());
     }
 
-    public Order getOrder(long id){
+    public Order getOrder(long id) {
         return this.orders.get(orders.get(id));
     }
 
