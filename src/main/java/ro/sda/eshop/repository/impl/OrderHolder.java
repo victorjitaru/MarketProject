@@ -23,10 +23,16 @@ public class OrderHolder {
         return maxId;
     }
 
-    //Check if product exists and adds a product into the HashMap
     public void addOrder(Order order) {
         order.setStatus(OrderStatus.Pending);
         this.orders.put(order.getId(), order);
+    }
+
+    public void setOrder(List<Order> orders){
+        this.orders.clear();
+        for(Order order:orders){
+            this.orders.put(order.getId(), order);
+        }
     }
 
     public List<Order> getAllOrders() {

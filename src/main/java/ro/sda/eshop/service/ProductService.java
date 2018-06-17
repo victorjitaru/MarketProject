@@ -12,8 +12,6 @@ public class ProductService {
     ProductReaderImpl productReader = new ProductReaderImpl();
     List<Product> products = productsRepositoryImpl.getAllProducts();
 
-
-
     //read ID for a Product
     public Long getIdForProduct() {
         return productReader.readProductId();
@@ -27,4 +25,29 @@ public class ProductService {
         }
         return false;
     }
+
+    public void listProducts(){
+        List<Product> products = productsRepositoryImpl.getAllProducts();
+        for(Product product:products){
+            product.toString();
+            System.out.println();
+        }
+    }
+
+    public void addProduct(){
+        productsRepositoryImpl.persistProduct(readProduct());
+    }
+
+    public Product readProduct() {
+        Product product = productReader.readProduct();
+        if(!productExists(product)) {
+            return product;
+        }
+        return null;
+    }
+
+    public Product getProductById(Long id){
+        return productsRepositoryImpl.getProductById(id);
+    }
+
 }

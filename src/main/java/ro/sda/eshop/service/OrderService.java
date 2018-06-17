@@ -5,6 +5,8 @@ import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
 
+import java.util.List;
+
 public class OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
@@ -14,13 +16,25 @@ public class OrderService {
         return true;
     }
 
-    public void addProdToOrder(Product product, Order order) {
+    public void addProdToOrder(Order order) {
+        productService.listProducts();
+        Long productId = productService.getIdForProduct();
+        Product product = productService.getProductById(productId);
+        //Need create ORDER(product)
         order.getProductIds().add(product.getId());
     }
 
     public void placeOrder(Order order){
         order.setStatus(OrderStatus.Placed);
         orderRepository.persistOrder(order);
+    }
+
+    public void listOrders(){
+        List<Order> orders = orderRepository.getAll();
+        for(Order order:orders){
+            order.toString();
+            System.out.println();
+        }
     }
 
     public void deliverOrder(Order order){

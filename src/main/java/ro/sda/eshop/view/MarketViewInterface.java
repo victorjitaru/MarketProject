@@ -1,9 +1,16 @@
 package ro.sda.eshop.view;
 
 public interface MarketViewInterface {
-    void displayView();
+    static void displayView(){
 
-    int  readOption();
+    }
 
-    void processOption(int option);
+    static int readOption(){
+        return 0;
+    }
+
+    static void processOption(int option){
+
+    }
+
 }

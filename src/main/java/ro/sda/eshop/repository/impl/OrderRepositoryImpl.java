@@ -17,11 +17,11 @@ public class OrderRepositoryImpl implements OrderRepository {
     OrderHolder orderHolder = new OrderHolder();
 
     public OrderRepositoryImpl(){
-        readFromFile();
+        this.orderHolder.setOrder(readFromFile());
     }
 
     public List<Order> getAll() {
-        return readFromFile();
+        return orderHolder.getAllOrders();
     }
 
     public Order getOrderById(long orderId) {

@@ -1,32 +1,18 @@
 package ro.sda.eshop.view;
 
 import ro.sda.eshop.repository.impl.OrderHolder;
+import ro.sda.eshop.service.OrderService;
+
 import java.util.Scanner;
 
 public class OrderView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
+    static OrderService orderService = new OrderService();
 
-    @Override
-    public void processOption(int option) {
-        switch (option){
-            case 1:
-
-                return;
-            case 2:
-                OrderHolder orderHolder= new OrderHolder();
-               // orderHolder.addOrder();
-                return;
-            case 0:
-            default:
-                return;
-        }
-    }
-
-    @Override
-    public void displayView() {
+    public static void displayView() {
         int option = -1;
-        System.out.println("1. List Order.");
-        System.out.println("2. Add order.");
+        System.out.println("1. List Orders.");
+        System.out.println("2. Place order.");
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
@@ -35,12 +21,26 @@ public class OrderView implements MarketViewInterface {
         }
     }
 
-    @Override
-    public int readOption() {
-
+    public static int readOption() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
 
     }
+
+    public static void processOption(int option) {
+        switch (option){
+            case 1:
+                orderService.listOrders();
+                return;
+            case 2:
+
+                return;
+            case 0:
+            default:
+                return;
+        }
+    }
+
+
 }

@@ -23,11 +23,7 @@ public class ProductHolder {
 
     //Check if product exists and adds a product into the HashMap
     public void addProduct(Product product) {
-        if (!productDuplicate(product)) {
             this.products.put(product.getId(), product);
-        } else {
-            System.out.println("Product already exists in stock.");
-        }
     }
 
     //puts all the products into the HashMap
@@ -48,13 +44,4 @@ public class ProductHolder {
         return new ArrayList<Product>(this.products.values());
     }
 
-    //checks if the newly added products already exists
-    private boolean productDuplicate(Product product) {
-        for (Product product1 : products.values()) {
-            if (product1.equals(product)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
