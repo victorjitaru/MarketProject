@@ -10,7 +10,9 @@ public class MainMenu {
     ProductService service = new ProductService();
     public void displayMenu(){
         int option = -1;
-        displayOptions();
+        System.out.println("1. Show all products.");
+        System.out.println("2. Select product to view (by ID).");
+        System.out.println("0. Exit");
         option = readOption();
         processOption(option);
         while(option != EXIT_OPTION){
@@ -18,11 +20,6 @@ public class MainMenu {
         }
     }
 
-    private void displayOptions(){
-        System.out.println("1. Show all products.");
-        System.out.println("2. Select product to view (by ID).");
-        System.out.println("0. Exit");
-    }
 
     private int readOption(){
         System.out.println("Input option: ");
