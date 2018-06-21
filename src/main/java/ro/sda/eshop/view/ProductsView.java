@@ -4,6 +4,9 @@ import ro.sda.eshop.service.ProductService;
 
 import java.util.Scanner;
 
+/*
+* TODO: rename to ProductView
+* */
 public class ProductsView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
     ProductService productService = new ProductService();

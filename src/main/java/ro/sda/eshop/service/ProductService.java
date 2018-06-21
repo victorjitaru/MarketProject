@@ -9,10 +9,17 @@ import java.util.List;
 public class ProductService {
 
     ProductsRepositoryImpl productsRepositoryImpl = new ProductsRepositoryImpl();
-    ProductReaderImpl productReader = new ProductReaderImpl();
     List<Product> products = productsRepositoryImpl.getAllProducts();
 
+    /*
+     * TODO: remove
+     * */
+    ProductReaderImpl productReader = new ProductReaderImpl();
+
     //read ID for a Product
+    /*
+     * TODO: remove
+     * */
     public Long getIdForProduct() {
         return productReader.readProductId();
     }
@@ -26,27 +33,39 @@ public class ProductService {
         return false;
     }
 
-    public void listProducts(){
+    public void listProducts() {
         List<Product> products = productsRepositoryImpl.getAllProducts();
-        for(Product product:products){
+        for (Product product : products) {
+            /*
+            * TODO: call sout with toString
+            * */
             product.toString();
             System.out.println();
         }
     }
 
-    public void addProduct(){
+    /*
+     * TODO: add Product param and call persistProduct with that product
+     * */
+    public void addProduct() {
         productsRepositoryImpl.persistProduct(readProduct());
     }
 
+    /*
+     * TODO: remove
+     * */
     public Product readProduct() {
         Product product = productReader.readProduct();
-        if(!productExists(product)) {
+        if (!productExists(product)) {
             return product;
         }
         return null;
     }
 
-    public Product getProductById(Long id){
+    /*
+     * TODO: rename param to productId
+     * */
+    public Product getProductById(Long id) {
         return productsRepositoryImpl.getProductById(id);
     }
 

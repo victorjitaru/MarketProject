@@ -1,9 +1,5 @@
 package ro.sda.eshop.view;
 
-import ro.sda.eshop.model.Order;
-import ro.sda.eshop.reader.OrderReader;
-import ro.sda.eshop.reader.impl.OrderReaderImpl;
-import ro.sda.eshop.repository.impl.StockHolder;
 import ro.sda.eshop.service.OrderService;
 
 import java.util.Scanner;
@@ -12,6 +8,7 @@ public class StockView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
 
     OrderService orderService = new OrderService();
+
     @Override
     public void displayView() {
         int option = -1;
