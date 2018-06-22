@@ -8,15 +8,18 @@ import java.util.Scanner;
 public class OrderReaderImpl implements OrderReader {
 
     /*
-    * Citest produsele dintr-un "order"
-    * */
+     * Citest produsele dintr-un "order"
+     * */
     public Order readOrder() {
-        Order order = new Order();
-
         Scanner scanner = new Scanner(System.in);
-
-
-
+        Order order = new Order();
+        System.out.println("Input product id: ");
+        String idValue = scanner.nextLine();
+        while (!idValue.equals("x")) {
+            order.getProductIds().add(Long.valueOf(idValue));
+            System.out.println("Input product id: ");
+            idValue = scanner.nextLine();
+        }
         return order;
     }
 }
