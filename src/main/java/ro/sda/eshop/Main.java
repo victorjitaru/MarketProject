@@ -14,6 +14,7 @@ import ro.sda.eshop.repository.StockRepository;
 import ro.sda.eshop.repository.impl.ProductsRepositoryImpl;
 import ro.sda.eshop.repository.impl.StockRepositoryImpl;
 import ro.sda.eshop.service.OrderService;
+import ro.sda.eshop.view.GeneralView;
 
 public class Main {
 
@@ -38,15 +39,13 @@ public class Main {
 //        Order ord2 = orderRead.readOrder();
 //        orderService.addProdToOrder(prod1, ord1);
 //        orderService.addProdToOrder(prod2, ord1);
+
 //        orderService.placeOrder(ord1);
 //        orderService.placeOrder(ord2);
-        OrderService orderService = new OrderService();
-        OrderReader orderReader = new OrderReaderImpl();
-        Order order = orderReader.readOrder();
 
+        GeneralView generalView = new GeneralView();
+        generalView.displayView();
 
-        orderService.placeOrder(order);
-        orderService.listOrders();
     }
 
 }

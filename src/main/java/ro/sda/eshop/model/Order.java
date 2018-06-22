@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+
     private Long id;
     private List<Long> productIds = new ArrayList<Long>();
     private OrderStatus status;

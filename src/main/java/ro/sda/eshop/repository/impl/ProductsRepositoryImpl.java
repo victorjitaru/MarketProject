@@ -12,11 +12,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* TODO: rename to ProductRepositoryImpl
+* */
 public class ProductsRepositoryImpl implements ProductsRepository {
 
     public static final String FILE_PATH = "products.json";
     ProductHolder productHolder = new ProductHolder();
 
+    /*
+    * TODO: write productHolder.setAllProducts(readFromFile())
+    * */
     public ProductsRepositoryImpl(){
         readFromFile();
     }
@@ -25,6 +31,10 @@ public class ProductsRepositoryImpl implements ProductsRepository {
         return readFromFile();
     }
 
+    /*
+    * TODO: take product from holder
+    * productHolder.getProduct(productId)
+    * */
     public Product getProductById(long productId) {
         List<Product> products = readFromFile();
         for (Product product : products) {

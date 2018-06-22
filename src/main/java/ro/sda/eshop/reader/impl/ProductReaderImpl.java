@@ -10,7 +10,8 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class ProductReaderImpl implements ProductReader{
-//reads a product from the keyboard
+
+    //reads a product from the keyboard
     public Product readProduct() {
         Product product = new Product();
         Scanner scanner = new Scanner(System.in);
@@ -21,8 +22,10 @@ public class ProductReaderImpl implements ProductReader{
         System.out.print("Description: ");
         System.out.println();
         product.setDescription(scanner.nextLine());
+
         return product;
     }
+
     //reads products from a file
     public Product addProductsFromFile(){
         String sourceFilePath = "productSource.txt";
@@ -38,8 +41,8 @@ public class ProductReaderImpl implements ProductReader{
         } catch (IOException e){
             e.getMessage();
         }
-        return product;
 
+        return product;
     }
 
     public Long readProductId(){
