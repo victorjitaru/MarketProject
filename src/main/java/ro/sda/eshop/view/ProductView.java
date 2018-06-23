@@ -32,7 +32,7 @@ public class ProductView implements MarketViewInterface {
     public void processOption(int option) {
         switch (option) {
             case 1:
-                productService.listProducts(productService.);
+                productService.listProducts();
                 return;
             case 2:
                 productService.addProduct(productReader.readProduct());
