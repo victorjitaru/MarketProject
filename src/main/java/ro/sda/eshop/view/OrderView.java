@@ -16,9 +16,9 @@ public class OrderView implements MarketViewInterface {
     static OrderService orderService = new OrderService();
 
     /*
-    * TODO: - DONE
-    * declare an order reader and use it here
-    * */
+     * TODO: - DONE
+     * declare an order reader and use it here
+     * */
     OrderReader orderReader = new OrderReaderImpl();
 
     public void displayView() {
@@ -38,16 +38,17 @@ public class OrderView implements MarketViewInterface {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
+    }
 
     public void processOption(int option) {
-        switch (option){
+        switch (option) {
             case 1:
                 orderService.listOrders();
                 return;
             case 2:
                 /*
-                * TODO: use order reader from class - DONE
-                * */
+                 * TODO: use order reader from class - DONE
+                 * */
                 Order order = orderReader.readOrder();
                 orderService.placeOrder(order);
                 return;
@@ -56,6 +57,7 @@ public class OrderView implements MarketViewInterface {
                 return;
         }
     }
-
-
 }
+
+
+

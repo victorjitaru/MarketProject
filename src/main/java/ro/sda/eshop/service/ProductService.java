@@ -8,7 +8,7 @@ import java.util.List;
 public class ProductService {
 
     ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();
-    List<Product> products = productRepositoryImpl.getAllProducts();
+    List<Product> products = productRepositoryImpl.findAll();
 
     public Long getIdForProduct(Product product) {
         return product.getId();
@@ -24,7 +24,7 @@ public class ProductService {
     }
 
     public void listProducts() {
-        List<Product> products = productRepositoryImpl.getAllProducts();
+        List<Product> products = productRepositoryImpl.findAll();
         for (Product product : products) {
             /*
             * TODO: call sout with toString - DONE
@@ -34,10 +34,10 @@ public class ProductService {
     }
 
     /*
-     * TODO: add Product param and call persistProduct with that product - DONE
+     * TODO: add Product param and call save with that product - DONE
      * */
     public void addProduct(Product product) {
-        productRepositoryImpl.persistProduct(product);
+        productRepositoryImpl.save(product);
     }
 
     /*
@@ -48,7 +48,7 @@ public class ProductService {
      * TODO: rename param to productId - DONE
      * */
     public Product getProductById(Long productId) {
-        return productRepositoryImpl.getProductById(productId);
+        return productRepositoryImpl.find(productId);
     }
 
 }

@@ -9,8 +9,8 @@ public class Main {
 //        Product prod1 = pread.readProduct();
 //        Product prod2 = pread.readProduct();
 //        ProductRepository productsRepository = new ProductRepositoryImpl();
-//        productsRepository.persistProduct(prod1);
-//        productsRepository.persistProduct(prod2);
+//        productsRepository.save(prod1);
+//        productsRepository.save(prod2);
 //
 //        StockReader sread = new StockReaderImpl();
 //        Stock stock1 = sread.readStock();

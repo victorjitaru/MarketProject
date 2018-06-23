@@ -3,7 +3,7 @@ package ro.sda.eshop.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Product;
-import ro.sda.eshop.repository.ProductRepository;
+import ro.sda.eshop.repository.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,22 +12,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-* TODO: rename to ProductRepositoryImpl - DONE
-* */
-public class ProductRepositoryImpl implements ProductRepository {
+public class ProductRepositoryImpl implements Repository<Product> {
 
     public static final String FILE_PATH = "products.json";
     ProductHolder productHolder = new ProductHolder();
 
-    /*
-    * TODO: write productHolder.setAllProducts(readFromFile())
-    * */
     public ProductRepositoryImpl(){
         readFromFile();
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> findAll() {
         return readFromFile();
     }
 
@@ -35,12 +29,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     * TODO: take product from holder - DONE
     * productHolder.getProduct(productId)
     * */
-    public Product getProductById(long productId) {
+    public Product find(Long productId) {
         return productHolder.getProduct(productId);
     }
 
     //assigns an Id to the products and adds a prod to the product list
-    public void persistProduct(Product product) {
+    public void save(Product product) {
         product.setId(productHolder.getMaxId() + 1);
         productHolder.addProduct(product);
         serialize(productHolder.getAllProducts());
@@ -85,8 +79,13 @@ public class ProductRepositoryImpl implements ProductRepository {
         return myProducts;
     }
 
-    public void persistProducts(List<Product> products) {
+    public void saveAll(List<Product> products) {
         serialize(products);
+    }
+
+    @Override
+    public void delete(Long id) {
+
     }
 
 
