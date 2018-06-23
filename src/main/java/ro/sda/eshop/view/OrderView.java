@@ -7,6 +7,9 @@ import ro.sda.eshop.view.reader.OrderReader;
 import ro.sda.eshop.view.reader.impl.OrderReaderImpl;
 import ro.sda.eshop.service.OrderService;
 
+
+import ro.sda.eshop.repository.impl.OrderHolder;
+
 import java.util.Scanner;
 
 public class OrderView implements MarketViewInterface {
@@ -31,10 +34,10 @@ public class OrderView implements MarketViewInterface {
     }
 
     public int readOption() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
-    }
 
     public void processOption(int option) {
         switch (option){
