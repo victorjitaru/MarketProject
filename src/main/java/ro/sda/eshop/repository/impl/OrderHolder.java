@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * TODO: put getters and setters for same field one after the other
+ * */
 public class OrderHolder {
 
     private Map<Long, Order> orders = new HashMap<Long, Order>();
@@ -23,10 +26,19 @@ public class OrderHolder {
         return maxId;
     }
 
-    //Check if product exists and adds a product into the HashMap
     public void addOrder(Order order) {
         order.setStatus(OrderStatus.Pending);
         this.orders.put(order.getId(), order);
+    }
+
+    /*
+    * TODO: rename to setAllOrders - DONE
+    * */
+    public void setAllOrders(List<Order> orders){
+        this.orders.clear();
+        for(Order order:orders){
+            this.orders.put(order.getId(), order);
+        }
     }
 
     public List<Order> getAllOrders() {

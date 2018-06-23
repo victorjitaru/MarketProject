@@ -2,21 +2,17 @@ package ro.sda.eshop.service;
 
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.reader.impl.ProductReaderImpl;
-import ro.sda.eshop.repository.impl.ProductsRepositoryImpl;
+import ro.sda.eshop.repository.impl.ProductRepositoryImpl;
 
 import java.util.List;
 
 public class ProductService {
 
-    ProductsRepositoryImpl productsRepositoryImpl = new ProductsRepositoryImpl();
-    ProductReaderImpl productReader = new ProductReaderImpl();
-    List<Product> products = productsRepositoryImpl.getAllProducts();
+    ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();
+    List<Product> products = productRepositoryImpl.getAllProducts();
 
-
-
-    //read ID for a Product
-    public Long getIdForProduct() {
-        return productReader.readProductId();
+    public Long getIdForProduct(Product product) {
+        return product.getId();
     }
 
     public boolean productExists(Product product) {
@@ -27,4 +23,33 @@ public class ProductService {
         }
         return false;
     }
+
+    public void listProducts() {
+        List<Product> products = productRepositoryImpl.getAllProducts();
+        for (Product product : products) {
+            /*
+            * TODO: call sout with toString - DONE
+            * */
+            System.out.println(product.toString());
+        }
+    }
+
+    /*
+     * TODO: add Product param and call persistProduct with that product - DONE
+     * */
+    public void addProduct(Product product) {
+        productRepositoryImpl.persistProduct(product);
+    }
+
+    /*
+     * TODO: remove - DONE
+     * */
+
+    /*
+     * TODO: rename param to productId - DONE
+     * */
+    public Product getProductById(Long productId) {
+        return productRepositoryImpl.getProductById(productId);
+    }
+
 }

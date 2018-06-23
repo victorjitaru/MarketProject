@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+
     private Long id;
     private List<Long> productIds = new ArrayList<Long>();
     private OrderStatus status;
@@ -30,5 +31,14 @@ public class Order {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", productIds=" + productIds +
+                ", status=" + status +
+                '}';
     }
 }

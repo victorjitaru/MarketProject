@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+* TODO: put getters and setters for same field one after the other
+* */
 public class StockHolder {
 
     private Map<Long, Stock> stocks = new HashMap<Long, Stock>();
@@ -27,7 +30,16 @@ public class StockHolder {
     }
 
     //puts all stocks into the HashMap
-    public void setStocks(List<Stock> stocks) {
+    /*
+    * TODO: rename to setAllStocks - DONE
+    * */
+
+    // gets all stocks from HasMap
+    public List<Stock> getAllStocks() {
+        return new ArrayList<Stock>(this.stocks.values());
+    }
+
+    public void setAllStocks(List<Stock> stocks) {
         this.stocks.clear();
         for (Stock stock : stocks) {
             this.stocks.put(stock.getId(), stock);
@@ -37,11 +49,6 @@ public class StockHolder {
     // gets a stocks from tha HasMap
     public Stock getStock(long id) {
         return this.stocks.get(id);
-    }
-
-    // gets all stocks from HasMap
-    public List<Stock> getAllStocks() {
-        return new ArrayList<Stock>(this.stocks.values());
     }
 
     //checks if the newly added stocks already exists
