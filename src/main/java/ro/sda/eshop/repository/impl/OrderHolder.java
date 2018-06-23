@@ -49,8 +49,8 @@ public class OrderHolder {
         return this.orders.get(orders.get(id));
     }
 
-    public void deleteOrder(Order order){
-        orders.remove(order.getId());
+    public void deleteOrder(Long orderId){
+        orders.remove(orders.get(orderId));
     }
 
 }
