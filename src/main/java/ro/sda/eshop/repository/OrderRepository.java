@@ -5,8 +5,8 @@ import ro.sda.eshop.model.Order;
 import java.util.List;
 
 public interface OrderRepository {
-    List<Order> getAll();
-    Order getOrderById(long id);
-    void persistOrder(Order order);
-    void persistAllOrders(List<Order> orders);
+    List<Order> findAll();
+    Order find(long id);
+    void save(Order order);
+    void saveAll(List<Order> orders);
 }
