@@ -2,12 +2,17 @@ package ro.sda.eshop.view;
 
 import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.OrderService;
+import ro.sda.eshop.service.StockService;
 
 import java.util.Scanner;
 
 public class StockView implements MarketViewInterface {
 
-    OrderService orderService = new OrderService();
+    //OrderService orderService = new OrderService();
+
+    StockService stockService = new StockService();
+
+
 
     @Override
     public void displayView() {
