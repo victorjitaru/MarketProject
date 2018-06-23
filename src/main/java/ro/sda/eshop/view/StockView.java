@@ -1,10 +1,14 @@
 package ro.sda.eshop.view;
 
 import ro.sda.eshop.model.Order;
+import ro.sda.eshop.model.Stock;
 import ro.sda.eshop.reader.OrderReader;
+import ro.sda.eshop.reader.StockReader;
 import ro.sda.eshop.reader.impl.OrderReaderImpl;
+import ro.sda.eshop.reader.impl.StockReaderImpl;
 import ro.sda.eshop.repository.impl.StockHolder;
 import ro.sda.eshop.service.OrderService;
+import ro.sda.eshop.service.StockService;
 
 import java.util.Scanner;
 
@@ -12,6 +16,8 @@ public class StockView implements MarketViewInterface {
     private static final int EXIT_OPTION = 0;
 
     OrderService orderService = new OrderService();
+    StockService addStock = new StockService();
+
     @Override
     public void displayView() {
         int option = -1;
@@ -39,9 +45,7 @@ public class StockView implements MarketViewInterface {
 
                 return;
             case 2:
-                OrderReader orderReader = new OrderReaderImpl();
-                Order order = orderReader.readOrder();
-                orderService.placeOrder(order);
+
                 return;
             case 0:
             default:
