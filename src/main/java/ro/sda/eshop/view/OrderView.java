@@ -12,9 +12,10 @@ public class OrderView implements MarketViewInterface {
     static OrderService orderService = new OrderService();
 
     OrderReader orderReader = new OrderReaderImpl();
+    int option;
 
     public void displayView() {
-        int option = -1;
+        option = -1;
         System.out.println("1. List Orders.");
         System.out.println("2. Place order.");
         System.out.println("0. Exit");

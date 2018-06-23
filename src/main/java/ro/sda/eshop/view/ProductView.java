@@ -10,9 +10,10 @@ import java.util.Scanner;
 public class ProductView implements MarketViewInterface {
     ProductService productService = new ProductService();
     ProductReader productReader = new ProductReaderImpl();
+    int option;
 
     public void displayView() {
-        int option = -1;
+        option = -1;
         System.out.println("1. List products");
         System.out.println("2. Add Product");
         System.out.println("0. Exit");

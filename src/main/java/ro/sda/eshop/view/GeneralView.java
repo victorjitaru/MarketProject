@@ -9,9 +9,10 @@ public class GeneralView implements MarketViewInterface {
     ProductView productView = new ProductView();
     StockView stockView = new StockView();
     OrderView orderView = new OrderView();
+    int option;
 
     public void displayView() {
-        int option = -1;
+        option = -1;
         System.out.println("1. Select Products.");
         System.out.println("2. Select Stock.");
         System.out.println("3. Select Order.");
