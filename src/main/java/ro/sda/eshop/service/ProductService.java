@@ -1,7 +1,6 @@
 package ro.sda.eshop.service;
 
 import ro.sda.eshop.model.Product;
-import ro.sda.eshop.reader.impl.ProductReaderImpl;
 import ro.sda.eshop.repository.impl.ProductRepositoryImpl;
 
 import java.util.List;

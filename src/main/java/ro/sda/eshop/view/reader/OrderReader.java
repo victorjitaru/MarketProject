@@ -1,4 +1,4 @@
-package ro.sda.eshop.reader;
+package ro.sda.eshop.view.reader;
 
 import ro.sda.eshop.model.Order;
 

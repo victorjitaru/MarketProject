@@ -3,8 +3,8 @@ package ro.sda.eshop.view;
 
 import ro.sda.eshop.Constants;
 import ro.sda.eshop.model.Order;
-import ro.sda.eshop.reader.OrderReader;
-import ro.sda.eshop.reader.impl.OrderReaderImpl;
+import ro.sda.eshop.view.reader.OrderReader;
+import ro.sda.eshop.view.reader.impl.OrderReaderImpl;
 import ro.sda.eshop.service.OrderService;
 
 import java.util.Scanner;

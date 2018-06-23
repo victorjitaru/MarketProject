@@ -29,7 +29,9 @@ public class OrderService {
         order.setStatus(OrderStatus.Placed);
         orderRepository.persistOrder(order);
     }
-
+/*
+TODO: Order displayer for listOrder/listOrders
+ */
     public void listOrders(){
         List<Order> orders = orderRepository.getAll();
         for(Order order:orders){
@@ -67,7 +69,7 @@ public class OrderService {
     }
 
     private void deleteOrder(Order order){
-
+        orderRepository.deleteOrder(order);
     }
 
     public void deleteAllProductsFromOrder(Order order) {

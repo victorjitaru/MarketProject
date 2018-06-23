@@ -1,7 +1,7 @@
-package ro.sda.eshop.reader.impl;
+package ro.sda.eshop.view.reader.impl;
 
 import ro.sda.eshop.model.Product;
-import ro.sda.eshop.reader.ProductReader;
+import ro.sda.eshop.view.reader.ProductReader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

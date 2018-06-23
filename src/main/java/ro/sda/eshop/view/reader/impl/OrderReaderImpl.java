@@ -1,7 +1,7 @@
-package ro.sda.eshop.reader.impl;
+package ro.sda.eshop.view.reader.impl;
 
 import ro.sda.eshop.model.Order;
-import ro.sda.eshop.reader.OrderReader;
+import ro.sda.eshop.view.reader.OrderReader;
 
 import java.util.Scanner;
 

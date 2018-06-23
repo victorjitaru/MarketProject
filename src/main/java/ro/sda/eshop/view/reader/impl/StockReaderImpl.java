@@ -1,11 +1,9 @@
-package ro.sda.eshop.reader.impl;
+package ro.sda.eshop.view.reader.impl;
 
 
 import ro.sda.eshop.model.Stock;
-import ro.sda.eshop.reader.StockReader;
+import ro.sda.eshop.view.reader.StockReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.Scanner;
 
 public class StockReaderImpl implements StockReader {

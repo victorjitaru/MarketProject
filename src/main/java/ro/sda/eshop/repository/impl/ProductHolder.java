@@ -24,7 +24,6 @@ public class ProductHolder {
         return maxId;
     }
 
-    //Check if product exists and adds a product into the HashMap
     public void addProduct(Product product) {
             this.products.put(product.getId(), product);
     }
