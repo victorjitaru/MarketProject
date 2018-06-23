@@ -25,10 +25,6 @@ public class ProductRepositoryImpl implements Repository<Product> {
         return readFromFile();
     }
 
-    /*
-    * TODO: take product from holder - DONE
-    * productHolder.getProduct(productId)
-    * */
     public Product find(Long productId) {
         return productHolder.getProduct(productId);
     }
@@ -84,9 +80,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
     }
 
     @Override
-    public void delete(Long id) {
-
+    public void delete(Long productId) {
+        productHolder.deleteProduct(productId);
     }
-
-
 }
