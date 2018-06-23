@@ -3,7 +3,6 @@ package ro.sda.eshop.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Order;
-import ro.sda.eshop.repository.OrderRepository;
 import ro.sda.eshop.repository.Repository;
 
 import java.io.BufferedReader;

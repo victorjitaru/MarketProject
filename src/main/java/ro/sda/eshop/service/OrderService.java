@@ -5,6 +5,7 @@ import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
+import ro.sda.eshop.view.displayer.OrderDisplayer;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
     ProductService productService = new ProductService();
+    OrderDisplayer orderDisplayer =  new OrderDisplayer();
 
     /*
     * TODO: When an Order is not valid throw a custom exception for each case
@@ -21,8 +23,8 @@ public class OrderService {
         return true;
     }
 
-    public void listOrders(List<Order> orders){
-        listOrders(orderRepository.findAll());
+    public void listOrders(){
+        orderDisplayer.listOrders(orderRepository.findAll());
     }
     /*
     * places an order
