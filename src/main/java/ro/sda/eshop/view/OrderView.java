@@ -2,23 +2,15 @@ package ro.sda.eshop.view;
 
 
 import ro.sda.eshop.Constants;
-import ro.sda.eshop.model.Order;
+import ro.sda.eshop.service.OrderService;
 import ro.sda.eshop.view.reader.OrderReader;
 import ro.sda.eshop.view.reader.impl.OrderReaderImpl;
-import ro.sda.eshop.service.OrderService;
-
-
-import ro.sda.eshop.repository.impl.OrderHolder;
 
 import java.util.Scanner;
 
 public class OrderView implements MarketViewInterface {
     static OrderService orderService = new OrderService();
 
-    /*
-     * TODO: - DONE
-     * declare an order reader and use it here
-     * */
     OrderReader orderReader = new OrderReaderImpl();
 
     public void displayView() {
@@ -46,11 +38,7 @@ public class OrderView implements MarketViewInterface {
                 orderService.listOrders();
                 return;
             case 2:
-                /*
-                * TODO: use order reader from class - DONE
-                * */
-                Order order = orderReader.readOrder();
-                orderService.placeOrder(order);
+                orderService.placeOrder(orderReader.readOrder());
                 return;
             case 0:
             default:

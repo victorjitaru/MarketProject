@@ -4,15 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Stock;
 import ro.sda.eshop.repository.Repository;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.System.getProperty;
 
 public class StockRepositoryImpl implements Repository<Stock> {
     public static final String FILE_PATH = "stocks.json";
