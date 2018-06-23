@@ -1,5 +1,6 @@
 package ro.sda.eshop.service;
 
+import ro.sda.eshop.exception.OrderStatusException;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
@@ -48,14 +49,14 @@ TODO: Order displayer for listOrder/listOrders
     * e.g. Order cannot be in other state than Placed
     * if no more products in Order after delete, delete Order
     * */
-    public void deleteProductFromOrder(Product product, Order order) {
+    public void deleteProductFromOrder(Product product, Order order) throws OrderStatusException {
         if(order.getStatus().equals(OrderStatus.Placed)) {
             order.getProductIds().remove(product.getId());
             if(order.getProductIds() == null){
                 deleteOrder(order.getId());
             }
         } else {
-            System.out.println("Error");
+            throw new OrderStatusException("Invalid order status");
             /*
             *TODO: insert custom exception
              */
