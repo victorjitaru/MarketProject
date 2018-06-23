@@ -47,8 +47,8 @@ public class OrderView implements MarketViewInterface {
                 return;
             case 2:
                 /*
-                 * TODO: use order reader from class - DONE
-                 * */
+                * TODO: use order reader from class - DONE
+                * */
                 Order order = orderReader.readOrder();
                 orderService.placeOrder(order);
                 return;
