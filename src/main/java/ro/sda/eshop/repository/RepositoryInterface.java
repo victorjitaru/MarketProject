@@ -1,6 +1,6 @@
 package ro.sda.eshop.repository;
 
-public interface MarketRepositoryInterface {
+public interface RepositoryInterface {
 
     /*
     * TODO:
