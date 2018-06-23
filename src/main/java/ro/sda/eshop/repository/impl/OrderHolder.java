@@ -32,9 +32,9 @@ public class OrderHolder {
     }
 
     /*
-    * TODO: rename to setAllOrders
+    * TODO: rename to setAllOrders - DONE
     * */
-    public void setOrder(List<Order> orders){
+    public void setAllOrders(List<Order> orders){
         this.orders.clear();
         for(Order order:orders){
             this.orders.put(order.getId(), order);

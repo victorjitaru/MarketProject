@@ -5,9 +5,9 @@ import ro.sda.eshop.model.Product;
 import java.util.List;
 
 /*
-* TODO: rename to ProductRepository
+* TODO: rename to ProductRepository - DONE
 * */
-public interface ProductsRepository {
+public interface ProductRepository {
 
     List<Product> getAllProducts();
     Product getProductById(long id);

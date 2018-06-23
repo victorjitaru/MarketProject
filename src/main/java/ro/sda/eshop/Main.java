@@ -1,19 +1,5 @@
 package ro.sda.eshop;
 
-import ro.sda.eshop.model.Order;
-import ro.sda.eshop.model.Product;
-import ro.sda.eshop.model.Stock;
-import ro.sda.eshop.reader.OrderReader;
-import ro.sda.eshop.reader.ProductReader;
-import ro.sda.eshop.reader.StockReader;
-import ro.sda.eshop.reader.impl.OrderReaderImpl;
-import ro.sda.eshop.reader.impl.ProductReaderImpl;
-import ro.sda.eshop.reader.impl.StockReaderImpl;
-import ro.sda.eshop.repository.ProductsRepository;
-import ro.sda.eshop.repository.StockRepository;
-import ro.sda.eshop.repository.impl.ProductsRepositoryImpl;
-import ro.sda.eshop.repository.impl.StockRepositoryImpl;
-import ro.sda.eshop.service.OrderService;
 import ro.sda.eshop.view.GeneralView;
 
 public class Main {
@@ -22,7 +8,7 @@ public class Main {
 //        ProductReader pread = new ProductReaderImpl();
 //        Product prod1 = pread.readProduct();
 //        Product prod2 = pread.readProduct();
-//        ProductsRepository productsRepository = new ProductsRepositoryImpl();
+//        ProductRepository productsRepository = new ProductRepositoryImpl();
 //        productsRepository.persistProduct(prod1);
 //        productsRepository.persistProduct(prod2);
 //

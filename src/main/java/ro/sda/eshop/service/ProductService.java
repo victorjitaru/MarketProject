@@ -2,26 +2,17 @@ package ro.sda.eshop.service;
 
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.reader.impl.ProductReaderImpl;
-import ro.sda.eshop.repository.impl.ProductsRepositoryImpl;
+import ro.sda.eshop.repository.impl.ProductRepositoryImpl;
 
 import java.util.List;
 
 public class ProductService {
 
-    ProductsRepositoryImpl productsRepositoryImpl = new ProductsRepositoryImpl();
-    List<Product> products = productsRepositoryImpl.getAllProducts();
+    ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();
+    List<Product> products = productRepositoryImpl.getAllProducts();
 
-    /*
-     * TODO: remove
-     * */
-    ProductReaderImpl productReader = new ProductReaderImpl();
-
-    //read ID for a Product
-    /*
-     * TODO: remove
-     * */
-    public Long getIdForProduct() {
-        return productReader.readProductId();
+    public Long getIdForProduct(Product product) {
+        return product.getId();
     }
 
     public boolean productExists(Product product) {
@@ -34,39 +25,31 @@ public class ProductService {
     }
 
     public void listProducts() {
-        List<Product> products = productsRepositoryImpl.getAllProducts();
+        List<Product> products = productRepositoryImpl.getAllProducts();
         for (Product product : products) {
             /*
-            * TODO: call sout with toString
+            * TODO: call sout with toString - DONE
             * */
-            product.toString();
-            System.out.println();
+            System.out.println(product.toString());
         }
     }
 
     /*
-     * TODO: add Product param and call persistProduct with that product
+     * TODO: add Product param and call persistProduct with that product - DONE
      * */
-    public void addProduct() {
-        productsRepositoryImpl.persistProduct(readProduct());
+    public void addProduct(Product product) {
+        productRepositoryImpl.persistProduct(product);
     }
 
     /*
-     * TODO: remove
+     * TODO: remove - DONE
      * */
-    public Product readProduct() {
-        Product product = productReader.readProduct();
-        if (!productExists(product)) {
-            return product;
-        }
-        return null;
-    }
 
     /*
-     * TODO: rename param to productId
+     * TODO: rename param to productId - DONE
      * */
-    public Product getProductById(Long id) {
-        return productsRepositoryImpl.getProductById(id);
+    public Product getProductById(Long productId) {
+        return productRepositoryImpl.getProductById(productId);
     }
 
 }

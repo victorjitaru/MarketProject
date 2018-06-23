@@ -1,11 +1,12 @@
 package ro.sda.eshop.view;
 
+import ro.sda.eshop.Constants;
+
 import java.util.Scanner;
 
 public class GeneralView implements MarketViewInterface {
-    private static final int EXIT_OPTION = 0;
 
-    ProductsView productsView = new ProductsView();
+    ProductView productView = new ProductView();
     StockView stockView = new StockView();
     OrderView orderView = new OrderView();
 
@@ -17,7 +18,7 @@ public class GeneralView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while(option != EXIT_OPTION) {
+        while(option != Constants.EXIT_OPTION) {
             displayView();
         }
     }
@@ -31,7 +32,7 @@ public class GeneralView implements MarketViewInterface {
     public void processOption(int option) {
         switch (option) {
             case 1:
-                productsView.displayView();
+                productView.displayView();
                 return;
             case 2:
                 stockView.displayView();

@@ -3,6 +3,7 @@ package ro.sda.eshop.service;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
+import ro.sda.eshop.repository.impl.OrderHolder;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
 
 import java.util.List;
@@ -20,16 +21,6 @@ public class OrderService {
         return true;
     }
 
-    /*
-    * TODO: consider removing
-    * */
-    public void addProdToOrder(Order order) {
-        productService.listProducts();
-        Long productId = productService.getIdForProduct();
-        Product product = productService.getProductById(productId);
-        //Need create ORDER(product)
-        order.getProductIds().add(product.getId());
-    }
 
     /*
     * places an order
@@ -56,12 +47,27 @@ public class OrderService {
     }
 
     /*
-    * TODO: Validate status of order before you can delete product id
+    * TODO: Validate status of order before you can delete product id - DONE
     * e.g. Order cannot be in other state than Placed
     * if no more products in Order after delete, delete Order
     * */
     public void deleteProductFromOrder(Product product, Order order) {
-        order.getProductIds().remove(product.getId());
+        if(order.getStatus().equals(OrderStatus.Placed)) {
+            order.getProductIds().remove(product.getId());
+            if(order.getProductIds() == null){
+                deleteOrder(order);
+            }
+        } else {
+            System.out.println("Error");
+            /*
+            *TODO: insert custom exception
+             */
+        }
+
+    }
+
+    private void deleteOrder(Order order){
+
     }
 
     public void deleteAllProductsFromOrder(Order order) {

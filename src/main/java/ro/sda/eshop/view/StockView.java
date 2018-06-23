@@ -1,11 +1,11 @@
 package ro.sda.eshop.view;
 
+import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.OrderService;
 
 import java.util.Scanner;
 
 public class StockView implements MarketViewInterface {
-    private static final int EXIT_OPTION = 0;
 
     OrderService orderService = new OrderService();
 
@@ -17,7 +17,7 @@ public class StockView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while(option != EXIT_OPTION){
+        while(option != Constants.EXIT_OPTION){
             displayView();
         }
     }

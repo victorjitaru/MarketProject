@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.System.getProperty;
@@ -20,7 +19,7 @@ public class StockRepositoryImpl implements StockRepository {
     StockHolder stockHolder = new StockHolder();
 
     public StockRepositoryImpl() {
-        this.stockHolder.setStocks(readFromFile());
+        this.stockHolder.setAllStocks(readFromFile());
     }
 
     public List<Stock> getAllStocks() {

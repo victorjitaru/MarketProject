@@ -17,7 +17,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     OrderHolder orderHolder = new OrderHolder();
 
     public OrderRepositoryImpl(){
-        this.orderHolder.setOrder(readFromFile());
+        this.orderHolder.setAllOrders(readFromFile());
     }
 
     public List<Order> getAll() {

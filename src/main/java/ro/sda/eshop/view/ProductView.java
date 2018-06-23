@@ -1,14 +1,14 @@
 package ro.sda.eshop.view;
 
+import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.ProductService;
 
 import java.util.Scanner;
 
 /*
-* TODO: rename to ProductView
+* TODO: rename to ProductView - DONE
 * */
-public class ProductsView implements MarketViewInterface {
-    private static final int EXIT_OPTION = 0;
+public class ProductView implements MarketViewInterface {
     ProductService productService = new ProductService();
 
     public void displayView() {
@@ -18,7 +18,7 @@ public class ProductsView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while (option != EXIT_OPTION) {
+        while (option != Constants.EXIT_OPTION) {
             displayView();
         }
     }
