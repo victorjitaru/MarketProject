@@ -8,22 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 /*
-* TODO: put getters and setters for same field one after the other
+* TODO: put getters and setters for same field one after the other- DONE
 * */
 public class StockHolder {
 
     private Map<Long, Stock> stocks = new HashMap<Long, Stock>();
-
-    protected Long getMaxId() {
-        Long maxId = -1L;
-        for (Long key : stocks.keySet()) {
-            if (key > maxId) {
-                maxId = key;
-            }
-        }
-        return maxId;
-    }
-
     //add a stocks into the HashMap
     public void addStock(Stock stock) {
         this.stocks.put(stock.getId(), stock);
@@ -31,8 +20,11 @@ public class StockHolder {
 
     //puts all stocks into the HashMap
     /*
-    * TODO: rename to setAllStocks - DONE
-    * */
+     * TODO: rename to setAllStocks - DONE
+     * */
+    public Stock getStock(long stockId) {
+        return this.stocks.get(stockId);
+    }
 
     // gets all stocks from HasMap
     public List<Stock> getAllStocks() {
@@ -46,11 +38,16 @@ public class StockHolder {
         }
     }
 
-    // gets a stocks from tha HasMap
-    public Stock getStock(long id) {
-        return this.stocks.get(id);
-    }
+    protected Long getMaxId() {
 
+        Long maxId = -1L;
+        for (Long key : stocks.keySet()) {
+            if (key > maxId) {
+                maxId = key;
+            }
+        }
+        return maxId;
+    }
     //checks if the newly added stocks already exists
     private boolean stockDuplicate(Stock stock) {
         for (Stock stock1 : stocks.values()) {
@@ -60,5 +57,7 @@ public class StockHolder {
         }
         return false;
     }
-
+    public void deleteStock(Long id) {
+        this.stocks.remove(id);
+    }
 }
