@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class OrderRepositoryImpl implements Repository<Order> {
@@ -65,9 +66,11 @@ public class OrderRepositoryImpl implements Repository<Order> {
         }
         String ordersLiteral = stringBuilder.toString();
         Gson gson = new Gson();
-        List<Order> myOrders = new ArrayList<Order>();
-        myOrders = gson.fromJson(ordersLiteral, myOrders.getClass());
-        return myOrders;
+
+        Order[] myOrders;
+        myOrders = gson.fromJson(ordersLiteral, Order[].class);
+
+        return Arrays.asList(myOrders);
     }
 
     private void serialize(List<Order> orders){

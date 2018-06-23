@@ -2,8 +2,6 @@ package ro.sda.eshop.view;
 
 import ro.sda.eshop.Constants;
 import ro.sda.eshop.model.Stock;
-import ro.sda.eshop.repository.StockRepository;
-import ro.sda.eshop.service.OrderService;
 import ro.sda.eshop.service.StockService;
 import ro.sda.eshop.view.displayer.StockDisplayer;
 import ro.sda.eshop.view.reader.StockReader;

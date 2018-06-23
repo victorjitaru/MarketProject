@@ -14,7 +14,7 @@ public class StockReaderImpl implements StockReader {
 
         System.out.print("Product ID: ");
         Integer readValue = scanner.nextInt();
-        stock.setId(readValue.longValue());
+        stock.setProductId(readValue.longValue());
         System.out.println();
 
         System.out.println("Amount is: ");

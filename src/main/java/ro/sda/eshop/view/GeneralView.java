@@ -19,8 +19,10 @@ public class GeneralView implements MarketViewInterface {
         option = readOption();
         processOption(option);
         while(option != Constants.EXIT_OPTION) {
+            System.out.println("Option was " + option);
             displayView();
         }
+        System.out.println("We are exiting. Option is " + option);
     }
 
     public int readOption() {

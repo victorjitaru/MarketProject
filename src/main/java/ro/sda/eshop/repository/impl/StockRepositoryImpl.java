@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class StockRepositoryImpl implements Repository<Stock> {
@@ -64,9 +66,10 @@ public class StockRepositoryImpl implements Repository<Stock> {
         String stocksLiteral = sb.toString();
         Gson gson = new Gson();
 
-        List<Stock> myStocks = new ArrayList<>();
-        myStocks = gson.fromJson(stocksLiteral, myStocks.getClass());
-        return myStocks;
+        Stock[] myStocks;
+        myStocks = gson.fromJson(stocksLiteral, Stock[].class);
+
+        return Arrays.asList(myStocks);
     }
 
     public void saveAll(List<Stock> stocks){

@@ -31,7 +31,7 @@ public class Main {
 
         GeneralView generalView = new GeneralView();
         generalView.displayView();
-
+        System.out.println("Thank you for visiting store.");
     }
 
 }

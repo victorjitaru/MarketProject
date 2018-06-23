@@ -3,6 +3,7 @@ package ro.sda.eshop.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Product;
+import ro.sda.eshop.model.Stock;
 import ro.sda.eshop.repository.Repository;
 
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductRepositoryImpl implements Repository<Product> {
@@ -70,9 +72,10 @@ public class ProductRepositoryImpl implements Repository<Product> {
         String productsLiteral = sb.toString();
         Gson gson = new Gson();
 
-        List<Product> myProducts = new ArrayList<Product>();
-        myProducts = gson.fromJson(productsLiteral, myProducts.getClass());
-        return myProducts;
+        Product[] myProducts;
+        myProducts = gson.fromJson(productsLiteral, Product[].class);
+
+        return Arrays.asList(myProducts);
     }
 
     public void saveAll(List<Product> products) {
