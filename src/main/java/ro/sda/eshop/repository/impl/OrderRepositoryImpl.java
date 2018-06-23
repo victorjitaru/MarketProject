@@ -75,7 +75,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         writeToFile(ordersLiteral);
     }
 
-    public void deleteOrder(Order order){
-        orderHolder.deleteOrder(order);
-    }
+    //public void deleteOrder(Order order){
+        //orderHolder.deleteOrder(order);
+    //}
 }
