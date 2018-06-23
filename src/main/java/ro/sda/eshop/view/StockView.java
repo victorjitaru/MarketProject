@@ -1,6 +1,5 @@
 package ro.sda.eshop.view;
 
-import ro.sda.eshop.Constants;
 import ro.sda.eshop.model.Stock;
 import ro.sda.eshop.service.StockService;
 import ro.sda.eshop.view.displayer.StockDisplayer;
@@ -27,7 +26,7 @@ public class StockView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while(option != Constants.EXIT_OPTION){
+        while(option != EXIT_OPTION){
             displayView();
         }
     }

@@ -1,7 +1,6 @@
 package ro.sda.eshop.view;
 
 
-import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.OrderService;
 import ro.sda.eshop.view.reader.OrderReader;
 import ro.sda.eshop.view.reader.impl.OrderReaderImpl;
@@ -21,7 +20,7 @@ public class OrderView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while (option != Constants.EXIT_OPTION) {
+        while (option != EXIT_OPTION) {
             displayView();
         }
     }

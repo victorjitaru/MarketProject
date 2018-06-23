@@ -1,6 +1,5 @@
 package ro.sda.eshop.view;
 
-import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.ProductService;
 import ro.sda.eshop.view.reader.ProductReader;
 import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
@@ -19,7 +18,7 @@ public class ProductView implements MarketViewInterface {
         System.out.println("0. Exit");
         option = readOption();
         processOption(option);
-        while (option != Constants.EXIT_OPTION) {
+        while (option != EXIT_OPTION) {
             displayView();
         }
     }
