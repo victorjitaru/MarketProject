@@ -2,7 +2,7 @@ package ro.sda.eshop;
 
 import org.junit.Test;
 import ro.sda.eshop.model.Product;
-import ro.sda.eshop.reader.impl.ProductReaderImpl;
+import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
 
 import java.math.BigDecimal;
 

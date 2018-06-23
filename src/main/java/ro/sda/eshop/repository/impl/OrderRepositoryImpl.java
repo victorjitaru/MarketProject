@@ -74,4 +74,8 @@ public class OrderRepositoryImpl implements OrderRepository {
         String ordersLiteral = gson.toJson(orders);
         writeToFile(ordersLiteral);
     }
+
+    public void deleteOrder(Order order){
+        orderHolder.deleteOrder(order);
+    }
 }

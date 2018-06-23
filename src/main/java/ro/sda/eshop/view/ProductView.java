@@ -2,6 +2,8 @@ package ro.sda.eshop.view;
 
 import ro.sda.eshop.Constants;
 import ro.sda.eshop.service.ProductService;
+import ro.sda.eshop.view.reader.ProductReader;
+import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
 
 import java.util.Scanner;
 
@@ -10,6 +12,7 @@ import java.util.Scanner;
 * */
 public class ProductView implements MarketViewInterface {
     ProductService productService = new ProductService();
+    ProductReader productReader = new ProductReaderImpl();
 
     public void displayView() {
         int option = -1;
@@ -35,7 +38,7 @@ public class ProductView implements MarketViewInterface {
                 productService.listProducts();
                 return;
             case 2:
-                productService.addProduct();
+                productService.addProduct(productReader.readProduct());
                 return;
             case 0:
             default:
