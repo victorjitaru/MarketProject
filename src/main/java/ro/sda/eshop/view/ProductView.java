@@ -7,9 +7,6 @@ import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
 
 import java.util.Scanner;
 
-/*
-* TODO: rename to ProductView - DONE
-* */
 public class ProductView implements MarketViewInterface {
     ProductService productService = new ProductService();
     ProductReader productReader = new ProductReaderImpl();
@@ -45,5 +42,4 @@ public class ProductView implements MarketViewInterface {
                 return;
         }
     }
-
 }

@@ -3,8 +3,7 @@ package ro.sda.eshop.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Stock;
-import ro.sda.eshop.repository.StockRepository;
-
+import ro.sda.eshop.repository.Repository;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,25 +11,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.getProperty;
-
-public class StockRepositoryImpl implements StockRepository {
+public class StockRepositoryImpl implements Repository<Stock> {
     public static final String FILE_PATH = "stocks.json";
     StockHolder stockHolder = new StockHolder();
 
     public StockRepositoryImpl() {
-        this.stockHolder.setAllStocks(readFromFile());
+       stockHolder.setAllStocks(readFromFile());
     }
 
-    public List<Stock> getAllStocks() {
-        return stockHolder.getAllStocks();
-    }
-
-    public Stock getStockById(long stockId) {
+    public Stock find(Long stockId) {
         return stockHolder.getStock(stockId);
     }
 
-    public void persistStock(Stock stock) {
+    public List<Stock> findAll() {
+        return stockHolder.getAllStocks();
+    }
+
+    public void save(Stock stock) {
         stock.setId(stockHolder.getMaxId() + 1);
         stockHolder.addStock(stock);
         serialize(stockHolder.getAllStocks());
@@ -72,8 +69,14 @@ public class StockRepositoryImpl implements StockRepository {
         return myStocks;
     }
 
-    public void persistStocks(List<Stock> stocks){
+    public void saveAll(List<Stock> stocks){
         serialize(stocks);
+    }
+
+
+    public void delete(Long id) {
+        stockHolder.deleteStock(id);
+
     }
 }
 

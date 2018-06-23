@@ -1,16 +1,17 @@
 package ro.sda.eshop.service;
 
+import ro.sda.eshop.exception.OrderStatusException;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
-
-import java.util.List;
+import ro.sda.eshop.view.displayer.OrderDisplayer;
 
 public class OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
     ProductService productService = new ProductService();
+    OrderDisplayer orderDisplayer =  new OrderDisplayer();
 
     /*
     * TODO: When an Order is not valid throw a custom exception for each case
@@ -20,20 +21,14 @@ public class OrderService {
         return true;
     }
 
-    public void listOrders(List<Order> orders){
-        listOrders(orderRepository.findAll());
+    public void listOrders(){
+        orderDisplayer.listOrders(orderRepository.findAll());
     }
-    /*
-    * places an order
-    * */
+
     public void placeOrder(Order order){
         order.setStatus(OrderStatus.Placed);
         orderRepository.save(order);
     }
-/*
-TODO: Order displayer for listOrder/listOrders
- */
-
 
     public void deliverOrder(Order order){
         order.setStatus(OrderStatus.Delivered);
@@ -43,24 +38,15 @@ TODO: Order displayer for listOrder/listOrders
         order.setStatus(OrderStatus.Returned);
     }
 
-    /*
-    * TODO: Validate status of order before you can delete product id - DONE
-    * e.g. Order cannot be in other state than Placed
-    * if no more products in Order after delete, delete Order
-    * */
-    public void deleteProductFromOrder(Product product, Order order) {
+    public void deleteProductFromOrder(Product product, Order order) throws OrderStatusException {
         if(order.getStatus().equals(OrderStatus.Placed)) {
             order.getProductIds().remove(product.getId());
             if(order.getProductIds() == null){
                 deleteOrder(order.getId());
             }
         } else {
-            System.out.println("Error");
-            /*
-            *TODO: insert custom exception
-             */
+            throw new OrderStatusException("Invalid order status");
         }
-
     }
 
     private void deleteOrder(Long orderId){

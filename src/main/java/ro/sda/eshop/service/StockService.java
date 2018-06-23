@@ -1,18 +1,16 @@
 package ro.sda.eshop.service;
 
 import ro.sda.eshop.model.Stock;
-import ro.sda.eshop.repository.StockRepository;
 import ro.sda.eshop.repository.impl.StockRepositoryImpl;
 
 import java.util.List;
 
 public class StockService {
 
-    StockRepository stockRepository = new StockRepositoryImpl();
+    StockRepositoryImpl stockRepositoryImpl = new StockRepositoryImpl();
+    List<Stock> stocks = stockRepositoryImpl.findAll();
 
-    public int getStockForProductId(Long productId) {
-        List<Stock> stocks = stockRepository.getAllStocks();
-
+    public Integer getStockForProductId(Long productId) {
         for (Stock stock:stocks){
             if (stock.getProductId() == productId) {
                 return stock.getAmount();
@@ -22,9 +20,6 @@ public class StockService {
     }
 
     public boolean stockExists(Long productId) {
-
-        List<Stock> stocks = stockRepository.getAllStocks();
-
         for (Stock stock:stocks) {
             if (stock.getProductId() == productId){
                 if (stock.getAmount() > 0){
@@ -36,12 +31,11 @@ public class StockService {
     }
 
     public List<Stock> listStock(){
-        return stockRepository.getAllStocks();
+        return stockRepositoryImpl.findAll();
     }
 
     public void addStock(Stock stock) {
-        stockRepository.persistStock(stock);
+        stockRepositoryImpl.save(stock);
     }
-
 
 }

@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
- * TODO: put getters and setters for same field one after the other
- * */
 public class ProductHolder {
 
     private Map<Long, Product> products = new HashMap<Long, Product>();
@@ -45,6 +42,10 @@ public class ProductHolder {
         for (Product product : products) {
             this.products.put(product.getId(), product);
         }
+    }
+
+    public void deleteProduct(Long productId){
+        products.remove(productId);
     }
 
 }
