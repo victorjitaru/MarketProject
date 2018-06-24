@@ -6,6 +6,7 @@ import ro.sda.eshop.view.reader.OrderReader;
 import java.util.Scanner;
 
 public class OrderReaderImpl implements OrderReader {
+    ProductReaderImpl productReader = new ProductReaderImpl();
 
 
     /*
@@ -18,8 +19,7 @@ public class OrderReaderImpl implements OrderReader {
         String idValue = scanner.nextLine();
         while (!idValue.equals("x")) {
             order.getProductIds().add(Long.valueOf(idValue));
-            System.out.println("Input product id: ");
-            idValue = scanner.nextLine();
+            idValue = productReader.readProductId();
         }
         return order;
     }

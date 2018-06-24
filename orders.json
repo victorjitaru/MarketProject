@@ -14,5 +14,25 @@
       3
     ],
     "status": "Placed"
+  },
+  {
+    "id": 3,
+    "productIds": [
+      1,
+      2
+    ],
+    "status": "Pending"
+  },
+  {
+    "id": 4,
+    "productIds": [],
+    "status": "Pending"
+  },
+  {
+    "id": 5,
+    "productIds": [
+      4
+    ],
+    "status": "Pending"
   }
 ]

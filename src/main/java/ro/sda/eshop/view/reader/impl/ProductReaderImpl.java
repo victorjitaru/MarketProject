@@ -45,11 +45,10 @@ public class ProductReaderImpl implements ProductReader{
         return product;
     }
 
-    public Long readProductId(){
+    public String readProductId(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input Product ID: ");
-        Integer readId = scanner.nextInt();
-        return readId.longValue();
+        return scanner.nextLine();
     }
 
 

@@ -6,12 +6,13 @@ import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
 import ro.sda.eshop.view.displayer.OrderDisplayer;
+import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
 
 public class OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
-    ProductService productService = new ProductService();
     OrderDisplayer orderDisplayer =  new OrderDisplayer();
+    ProductReaderImpl productReader = new ProductReaderImpl();
 
     /*
     * TODO: When an Order is not valid throw a custom exception for each case
@@ -39,8 +40,15 @@ public class OrderService {
     }
 
     public void deleteProductFromOrder(Product product, Order order) throws OrderStatusException {
-        if(order.getStatus().equals(OrderStatus.Placed)) {
-            order.getProductIds().remove(product.getId());
+        if(order.getStatus().equals(OrderStatus.Pending)) {
+            Long productId = Long.valueOf(productReader.readProductId());
+            if(order.getProductIds().contains(productId)) {
+                order.getProductIds().remove(productId);
+            } else{
+                //Wrong exception!
+                throw new OrderStatusException("Order already placed");
+
+            }
             if(order.getProductIds() == null){
                 deleteOrder(order.getId());
             }
