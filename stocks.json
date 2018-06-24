@@ -12,18 +12,28 @@
     "amount": 50
   },
   {
-    "id": 3,
+    "id": 9,
     "productId": 6,
-    "amount": 40
+    "amount": 36
   },
   {
-    "id": 4,
-    "productId": 4,
-    "amount": 65
-  },
-  {
-    "id": 5,
+    "id": 14,
     "productId": 67,
-    "amount": 123
+    "amount": 120
+  },
+  {
+    "id": 15,
+    "productId": 4,
+    "amount": 62
+  },
+  {
+    "id": 14,
+    "productId": 67,
+    "amount": 120
+  },
+  {
+    "id": 15,
+    "productId": 4,
+    "amount": 62
   }
 ]

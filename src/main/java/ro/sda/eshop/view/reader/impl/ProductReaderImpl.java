@@ -47,7 +47,7 @@ public class ProductReaderImpl implements ProductReader{
 
     public String readProductId(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input Product ID: ");
+        System.out.println("Input Product Id: ");
         return scanner.nextLine();
     }
 

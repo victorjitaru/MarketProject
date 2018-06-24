@@ -1,6 +1,9 @@
 package ro.sda.eshop.view;
 
 
+import ro.sda.eshop.exception.MissingProductFromOrderException;
+import ro.sda.eshop.exception.MissingProductFromStockException;
+import ro.sda.eshop.exception.OrderStatusException;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.service.OrderService;
 import ro.sda.eshop.service.ProductService;
@@ -46,6 +49,16 @@ public class OrderView implements MarketViewInterface {
                 return;
             case 3:
                 orderService.deleteAllProductsFromOrder(order);
+                return;
+            case 4:
+                try {
+                    orderService.deleteProductFromOrder(order);
+                }catch (MissingProductFromOrderException e){
+                    e.getMessage();
+            } catch (OrderStatusException e){
+                    e.getMessage();
+                }
+                return;
             case 0:
             default:
                 return;

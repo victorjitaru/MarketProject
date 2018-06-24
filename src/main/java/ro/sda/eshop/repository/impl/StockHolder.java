@@ -54,4 +54,23 @@ public class StockHolder {
     public void deleteStock(Long id) {
         this.stocks.remove(id);
     }
+
+    public int getStockForProdId(Long productId){
+        for(Stock stock:stocks.values()){
+            if(stock.getProductId() == productId){
+                return stock.getAmount();
+            }
+        }
+         return 0;
+    }
+
+    public Stock setStockForProduct(Long productId, int amount){
+        for(Stock stock:stocks.values()){
+            if(stock.getProductId() == productId){
+                stock.setAmount(amount);
+                return stock;
+            }
+        }
+        return null;
+    }
 }

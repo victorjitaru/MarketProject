@@ -4,13 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.eshop.model.Stock;
 import ro.sda.eshop.repository.Repository;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class StockRepositoryImpl implements Repository<Stock> {
@@ -77,9 +76,15 @@ public class StockRepositoryImpl implements Repository<Stock> {
     }
 
 
-    public void delete(Long id) {
-        stockHolder.deleteStock(id);
-
+    public void delete(Long stockId) {
+        stockHolder.deleteStock(stockId);
     }
+
+    public void modifyStock(Long productId){
+        int newStock = stockHolder.getStockForProdId(productId) - 1;
+        Stock stock = stockHolder.setStockForProduct(productId, newStock);
+        save(stock);
+    }
+
 }
 

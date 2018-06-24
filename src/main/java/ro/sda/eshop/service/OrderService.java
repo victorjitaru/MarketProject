@@ -1,11 +1,13 @@
 package ro.sda.eshop.service;
 
+import ro.sda.eshop.exception.MissingProductFromOrderException;
 import ro.sda.eshop.exception.OrderStatusException;
 import ro.sda.eshop.model.Order;
 import ro.sda.eshop.model.OrderStatus;
 import ro.sda.eshop.model.Product;
 import ro.sda.eshop.repository.impl.OrderRepositoryImpl;
 import ro.sda.eshop.view.displayer.OrderDisplayer;
+import ro.sda.eshop.view.reader.ProductReader;
 import ro.sda.eshop.view.reader.impl.ProductReaderImpl;
 
 public class OrderService {
@@ -39,30 +41,25 @@ public class OrderService {
         order.setStatus(OrderStatus.Returned);
     }
 
-    public void deleteProductFromOrder(Product product, Order order) throws OrderStatusException {
+    public void deleteProductFromOrder(Order order) throws OrderStatusException, MissingProductFromOrderException {
+        Long productId = Long.valueOf(productReader.readProductId());
         if(order.getStatus().equals(OrderStatus.Pending)) {
-            Long productId = Long.valueOf(productReader.readProductId());
             if(order.getProductIds().contains(productId)) {
                 order.getProductIds().remove(productId);
             } else{
-                //Wrong exception!
-                throw new OrderStatusException("Order already placed");
-
+                throw new MissingProductFromOrderException("Product not found in order");
             }
             if(order.getProductIds() == null){
-                deleteOrder(order.getId());
+                orderRepository.delete(order.getId());
             }
         } else {
             throw new OrderStatusException("Invalid order status");
         }
     }
 
-    private void deleteOrder(Long orderId){
-        orderRepository.delete(orderId);
-    }
-
-    public void deleteAllProductsFromOrder(Order order) {
+        public void deleteAllProductsFromOrder(Order order) {
         order.getProductIds().clear();
+        orderRepository.delete(order.getId());
     }
 
 }
